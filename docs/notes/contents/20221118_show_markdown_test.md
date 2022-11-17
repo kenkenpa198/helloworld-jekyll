@@ -4,15 +4,54 @@ layout: default
 ---
 
 <!-- omit in toc -->
-# マークダウン表示テスト
+# マークダウン記法の表示テスト
 
-マークダウン記法のテスト用ファイルです。  
-オリジナルのファイルは `docs/notes/contents/20221118_show_test.md` を確認してください。
+マークダウン記法の表示テスト用ファイル（ページ）です。  
 
 参考:
 
 - [Markdown 記法一覧表 チートシート](https://growi.cloud/blog/811)
 - [Markdown記法 チートシート - Qiita](https://qiita.com/Qiita/items/c686397e4a0f4f11683d)
+
+<!-- omit in toc -->
+## メモ
+
+<!-- omit in toc -->
+### i. マークダウンから HTML ファイルへの検知・生成
+
+この HTML ファイルは `docs/notes/contents/20221118_show_markdown_test.md` から生成されています。
+このマークダウンファイル内へ最初に記述された以下の設定テキストブロック（[YAML front matter ブロック](http://jekyllrb-ja.github.io/docs/front-matter/) と言う）を Jekyll が検知して処理しています。  
+
+```md
+---
+title: マークダウン表示テスト
+layout: default
+---
+```
+
+<!-- omit in toc -->
+### ii. HTML と CSS
+
+HTML のレイアウトは `docs/_layouts/default.html` をテンプレートとして生成されています。
+
+CSS は `docs/css/style.css` `docs/css/normalize.css` を使用しています。  
+レイアウトの `<link>` タグの `href` 属性へ `{{ "/css/normalize.css" | relative_url }}` を記述して読み込まれています。
+
+```html
+<head>
+    ...
+    <link rel="stylesheet" href="{{ "/css/normalize.css" | relative_url }}">
+    ...
+    <link rel="stylesheet" href="{{ "/css/style.css" | relative_url }}">
+</head>
+```
+
+<!-- omit in toc -->
+### iii. その他
+
+- マークダウン記法の原本を確認したい際は  `docs/notes/contents/20221118_show_markdown_test.md` を確認してください。
+    - 一部の見出しに含んでいる `<!-- omit in toc -->` は Jekyll とは無関係です。コーディング用の記述です。
+- ブラウザのデフォルト表示を確認したい際は、開発者ツールで `<head>` タグ内の CSS 読み込み用の記述を削除してください。
 
 <!-- omit in toc -->
 ## 目次
@@ -42,6 +81,12 @@ layout: default
     - [11.1. コードブロック](#111-コードブロック)
     - [11.2. コードスパン](#112-コードスパン)
 - [12. HTML](#12-html)
+- [見出し](#見出し)
+    - [見出し](#見出し-1)
+- [heading](#heading)
+    - [heading](#heading-1)
+- [Heading](#heading-2)
+    - [Heading](#heading-3)
 
 ## 1. 見出し 2
 
@@ -282,4 +327,17 @@ int main(void) {
 
 ---
 
-以上。
+以上。  
+以下個人的な確認用。
+
+## 見出し
+
+### 見出し
+
+## heading
+
+### heading
+
+## Heading
+
+### Heading
