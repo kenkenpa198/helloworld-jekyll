@@ -352,8 +352,15 @@ You can use HTML elements in Markdown, such as the comment element, and they won
 3. ローカルでビルドした際の表示は問題ないぽい。
 4. GitHub へプッシュ……。
 5. アクセス…………。
-6. できた！！！！！！！！！！！！！！！！！！！！！！！！！！
-    1. ![sub_dir_github](images/20221117_sub_dir_github.jpg)
+6. できた！！！！！！！！！！！！！！！！！！！！！！！！！！  
+![sub_dir_github](images/20221117_sub_dir_github.jpg)
+
+7. 開発者ツールで開いてみると、`/tutorial-jekyll/css/style.css` というパスが生成されている。  
+![notes_contents_20221107_a_dev_tool](images/20221117_notes_contents_20221107_a_dev_tool.jpg)
+
+8. この `/tutorial-jekyll/` が先ほどの指定 `{{ "/css/style.css" | relative_url }}` によって生成されたパスということでよさそう。
+    1. 今回は GitHub Pages 機能で公開されているドメイン `https://kenkenpa198.github.io/` 配下の `tutorial-jekyll` 配下にファイルが配置されているからこのパスが生成されたみたい。
+    2. > relative_urlフィルタは設定ファイルからbaseurlの値（例えばblog）を取得します。これは、ドメインのrootよりサブパスでホストしているとき（例えばhttp://mysite.com/blog/）に便利です。
 
 ## 7. 参考文献
 
