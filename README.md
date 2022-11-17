@@ -1,9 +1,12 @@
 <!-- omit in toc -->
 # tutorial-jekyll
 
-[https://kenkenpa198.github.io/tutorial-jekyll/](https://kenkenpa198.github.io/tutorial-jekyll/)
-
 Jekyll のチュートリアル用リポジトリです。
+
+<!-- omit in toc -->
+## 公開 URL
+
+[https://kenkenpa198.github.io/tutorial-jekyll/](https://kenkenpa198.github.io/tutorial-jekyll/)
 
 <!-- omit in toc -->
 ## 目次
