@@ -16,6 +16,9 @@ Jekyll のチュートリアル用リポジトリです。
 
 ## 1. 環境構築メモ
 
+- [インストール | Jekyll • シンプルで、ブログのような、静的サイト](http://jekyllrb-ja.github.io/docs/installation/)
+- [Jekyll on Ubuntu | Jekyll • シンプルで、ブログのような、静的サイト](http://jekyllrb-ja.github.io/docs/installation/ubuntu/)
+
 1. 参考文献をもとに Ruby をインストール。
 
     ```shell
@@ -49,75 +52,78 @@ Jekyll のチュートリアル用リポジトリです。
 
 ## 2. なにはともあれチュートリアル
 
-```shell
-# ルートディレクトリを作成
-$ mkdir docs
-$ cd docs
+- [HTMLサイトをJekyllに変換 | Jekyll • シンプルで、ブログのような、静的サイト](http://jekyllrb-ja.github.io/tutorials/convert-existing-site-to-jekyll/)
 
-# 設定ファイルを作成
-# 作成したらチュートリアルに記載のあるコードを3つのファイルへ記述する
-$ touch _config.yml index.md default.html
-$ mkdir _layouts && mv default.html _layouts
+1. 以下の通り実行。
 
-# serve でサイトをサーバーに構築
-$ jekyll serve
+    ```shell
+    # ルートディレクトリを作成
+    $ mkdir docs
+    $ cd docs
 
-# Server address: http://127.0.0.1:4000 と出ているので localhost へブラウザでアクセスする
-```
+    # 設定ファイルを作成
+    # 作成したらチュートリアルに記載のあるコードを3つのファイルへ記述する
+    $ touch _config.yml index.md default.html
+    $ mkdir _layouts && mv default.html _layouts
 
-うおー
+    # serve でサイトをサーバーに構築
+    $ jekyll serve
 
+    # Server address: http://127.0.0.1:4000 と出ているので localhost へブラウザでアクセスする
+    ```
+
+2. うおー
 ![結果](images/20221117_preview.jpg)
 
-`index.md` を基に html ファイル `_site/index.html` も生成された。
+3. `index.md` を基に html ファイル `_site/index.html` も生成された。
 
-```shell
-.
-├── docs
-│   ├── _layouts
-│   │   └── default.html
-│   ├── _site             ← 生成
-│   │   └── index.html   ← 生成
-│   ├── _config.yml
-│   └── index.md
-├── images
-└── README.md
-```
+    ```shell
+    .
+    ├── docs
+    │   ├── _layouts
+    │   │   └── default.html
+    │   ├── _site ★            ← 生成
+    │   │   └── index.html ★  ← 生成
+    │   ├── _config.yml
+    │   └── index.md
+    ├── images
+    └── README.md
+    ```
 
-`index.md`
+    1. `index.md`
 
-```md
----
-title: My page
-layout: default
----
+        ```md
+        ---
+        title: My page
+        layout: default
+        ---
 
-# {{ page.title }}
+        # {{ page.title }}
 
-Content is written in [Markdown](https://learnxinyminutes.com/docs/markdown/). Plain text format allows you to focus on your **content**.
+        Content is written in [Markdown](https://learnxinyminutes.com/docs/markdown/). Plain text format allows you to focus on your **content**.
 
-<!--
-You can use HTML elements in Markdown, such as the comment element, and they won't be affected by a markdown parser. However, if you create an HTML element in your markdown file, you cannot use markdown syntax within that element's contents.
--->
-```
+        <!--
+        You can use HTML elements in Markdown, such as the comment element, and they won't be affected by a markdown parser. However, if you create an HTML element in your markdown file, you cannot use markdown syntax within that element's contents.
+        -->
+        ```
 
-`_site/index.html`
+    2. `_site/index.html`
 
-```html
-<!DOCTYPE html>
-<html>
-  <body>
-     <h1 id="my-page">My page</h1>
+        ```html
+        <!DOCTYPE html>
+        <html>
+        <body>
+            <h1 id="my-page">My page</h1>
 
-<p>Content is written in <a href="https://learnxinyminutes.com/docs/markdown/">Markdown</a>. Plain text format allows you to focus on your <strong>content</strong>.</p>
+        <p>Content is written in <a href="https://learnxinyminutes.com/docs/markdown/">Markdown</a>. Plain text format allows you to focus on your <strong>content</strong>.</p>
 
-<!--
-You can use HTML elements in Markdown, such as the comment element, and they won't be affected by a markdown parser. However, if you create an HTML element in your markdown file, you cannot use markdown syntax within that element's contents.
--->
+        <!--
+        You can use HTML elements in Markdown, such as the comment element, and they won't be affected by a markdown parser. However, if you create an HTML element in your markdown file, you cannot use markdown syntax within that element's contents.
+        -->
 
-  </body>
-</html>
-```
+        </body>
+        </html>
+        ```
 
 ## 3. GitHub Pages で公開してみる
 
@@ -129,12 +135,13 @@ You can use HTML elements in Markdown, such as the comment element, and they won
 6. `Save` をクリック。
 7. 画面上部に `GitHub Pages source saved.` と表示される。
 8. `Actions` タブへ遷移。既にビルドが始まっている！
-9. `Jobs` がすべて緑になり、ログに `Cleaning up orphan processes` と表示されていたら完了ぽい。
-    1. ![building](images/20221117_github_pages_building.jpg)
+9. `Jobs` がすべて緑になり、ログに `Cleaning up orphan processes` と表示されていたら完了ぽい。  
+![building](images/20221117_github_pages_building.jpg)
+
 10. もう一度 `Settings` > `Pages` > `GitHub Pages` へ遷移。
 11. URL が発行されているのでクリック。
-12. うおーーー
-    1. ![result](images/20221117_github_pages_result.jpg)
+12. うおーーー  
+![result](images/20221117_github_pages_result.jpg)
 
 ## 4. デフォルトレイアウトのテンプレートを作ってみよー
 
@@ -147,7 +154,7 @@ You can use HTML elements in Markdown, such as the comment element, and they won
         .
         ├── docs
         │   ├── _layouts
-        │   │   └── default.html ★
+        │   │   └── default.html ★ ← コレ
         │   ├── _site
         │   │   └── index.html
         │   ├── _config.yml
@@ -218,10 +225,11 @@ You can use HTML elements in Markdown, such as the comment element, and they won
         ```
 
 2. 保存して localhost へアクセス。
-3. うおーーーーー
-    1. ![template](images/20221117_template.jpg)
-    2. CSS ファイルが無いためデフォルトの表示の状態になっている。
-    3. `$ jekyll serve` が実行中の場合、自動で html ファイルの更新も行われるぽい。
+3. うおーーーーー  
+![template](images/20221117_template.jpg)
+    1. CSS ファイルが無いためデフォルトの表示の状態になっている。
+    2. `$ jekyll serve` が実行中の場合、自動で html ファイルの更新も行われるぽい。
+
 4. CSS ファイルを配置する。
 
     ```shell
@@ -230,13 +238,13 @@ You can use HTML elements in Markdown, such as the comment element, and they won
     │   ├── _layouts
     │   │   └── default.html
     │   ├── _site
-    │   │   ├── css            ★ 2. ここに生成された
-    │   │   │   ├── normalize.css
-    │   │   │   └── style.css
+    │   │   ├── css ★                ← 2. ここに生成された
+    │   │   │   ├── normalize.css ★
+    │   │   │   └── style.css ★
     │   │   └── index.html
-    │   ├── css                 ★ 1. CSS を配置すると
-    │   │   ├── normalize.css
-    │   │   └── style.css
+    │   ├── css ★                     ← 1. CSS を配置すると
+    │   │   ├── normalize.css ★
+    │   │   └── style.css ★
     │   ├── _config.yml
     │   └── index.md
     ├── images
@@ -248,13 +256,13 @@ You can use HTML elements in Markdown, such as the comment element, and they won
     3. つまり `index.html` に記述した相対パス `<link rel="stylesheet" href="./css/style.css">` もしっかり再現されている。
 
 5. localhost へアクセスする。
-6. うおーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
-    1. ![template_with_css](images/20221117_template_with_css.jpg)
+6. うおーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー  
+![template_with_css](images/20221117_template_with_css.jpg)
 
 7. GitHub へプッシュしてみる。
 8. ビルド完了後、アクセス。
-9. しっかり表示された！
-    1. ![gh_temp](images/20221117_github_pages_template.jpg)
+9. しっかり表示された！  
+![gh_temp](images/20221117_github_pages_template.jpg)
 
 ## 5. 子階層だったらどうなるか実験
 
@@ -274,17 +282,17 @@ You can use HTML elements in Markdown, such as the comment element, and they won
     │   │   │   │   ├── 20221107_a.html ★
     │   │   │   │   ├── 20221107_b.html ★
     │   │   │   │   └── 20221107_c.html ★
-    │   │   │   └── index.html
+    │   │   │   └── index.html ★
     │   │   └── index.html
     │   ├── css
     │   │   ├── normalize.css
     │   │   └── style.css
-    │   ├── notes ★                   ← 1. notes ディレクトリを追加
+    │   ├── notes ★                   ← 1. notes ディレクトリとファイル群を追加
     │   │   ├── contents ★
     │   │   │   ├── 20221107_a.md ★
     │   │   │   ├── 20221107_b.md ★
     │   │   │   └── 20221107_c.md ★
-    │   │   └── index.md
+    │   │   └── index.md ★
     │   ├── _config.yml
     │   └── index.md
     ├── images
@@ -310,9 +318,9 @@ You can use HTML elements in Markdown, such as the comment element, and they won
     ```
 
 5. アクセス。正常に CSS が効いた！
-    1. `http://localhost:4000/notes/`
+    1. `http://localhost:4000/notes/`  
     ![notes_index](images/20221117_notes_index.jpg)
-    2. `http://localhost:4000/notes/contents/20221107_a.html`
+    2. `http://localhost:4000/notes/contents/20221107_a.html`  
     ![notes_contents_20221107_a](images/20221117_notes_contents_20221107_a.jpg)
 
 6. GitHub へプッシュしてみる。
