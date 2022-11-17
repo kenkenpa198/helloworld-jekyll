@@ -3,9 +3,14 @@
 
 Jekyll のチュートリアル用リポジトリです。
 
-## 1. なにはともあれチュートリアル
+- [1. 環境構築メモ](#1-環境構築メモ)
+- [2. なにはともあれチュートリアル](#2-なにはともあれチュートリアル)
+- [3. GitHub Pages で公開してみる](#3-github-pages-で公開してみる)
+- [4. デフォルトレイアウトのテンプレートを作ってみよー](#4-デフォルトレイアウトのテンプレートを作ってみよー)
+- [5. 子階層だったらどうなるか実験](#5-子階層だったらどうなるか実験)
+- [6. 参考文献](#6-参考文献)
 
-### 1.1. 環境構築
+## 1. 環境構築メモ
 
 1. 参考文献をもとに Ruby をインストール。
 
@@ -38,7 +43,7 @@ Jekyll のチュートリアル用リポジトリです。
     $ jekyll --version
     ```
 
-### 1.2. ビルドしてみる
+## 2. なにはともあれチュートリアル
 
 ```shell
 # ルートディレクトリを作成
@@ -110,7 +115,7 @@ You can use HTML elements in Markdown, such as the comment element, and they won
 </html>
 ```
 
-## 2. GitHub Pages で公開してみる
+## 3. GitHub Pages で公開してみる
 
 1. GitHub のこのリポジトリへアクセス。
 2. `Settings` > `Pages` > `GitHub Pages` へ遷移。
@@ -127,7 +132,7 @@ You can use HTML elements in Markdown, such as the comment element, and they won
 12. うおーーー
     1. ![result](images/20221117_github_pages_result.jpg)
 
-## 3. デフォルトレイアウトのテンプレートを作ってみよー
+## 4. デフォルトレイアウトのテンプレートを作ってみよー
 
 チュートリアルの続き `1. デフォルトレイアウトのテンプレートを作る` から再開。
 
@@ -247,7 +252,7 @@ You can use HTML elements in Markdown, such as the comment element, and they won
 9. しっかり表示された！
     1. ![gh_temp](images/20221117_github_pages_template.jpg)
 
-## 4. 子階層だったらどうなるか実験
+## 5. 子階層だったらどうなるか実験
 
 1. 以下のようなファイル構成にしてみる。
 
@@ -308,7 +313,7 @@ You can use HTML elements in Markdown, such as the comment element, and they won
 
 6. GitHub へプッシュしてみる。
 
-## 5. 参考文献
+## 6. 参考文献
 
 - [インストール | Jekyll • シンプルで、ブログのような、静的サイト](http://jekyllrb-ja.github.io/docs/installation/)
 - [Jekyll on Ubuntu | Jekyll • シンプルで、ブログのような、静的サイト](http://jekyllrb-ja.github.io/docs/installation/ubuntu/)
