@@ -240,6 +240,9 @@ You can use HTML elements in Markdown, such as the comment element, and they won
     1. ![template_with_css](images/20221117_template_with_css.jpg)
 
 7. GitHub へプッシュしてみる。
+8. ビルド完了後、アクセス。
+9. しっかり表示された！
+    1. ![gh_temp](images/20221117_github_pages_template.jpg)
 
 ## 4. 参考文献
 
