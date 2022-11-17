@@ -15,7 +15,7 @@ Jekyll のチュートリアル用リポジトリです。
     $ gem -v
     ```
 
-2. 以下を .zshrc へ追加。
+2. 以下を `.zshrc` へ追加。
 
     ```shell
     # Install Ruby Gems to ~/gems
@@ -23,7 +23,7 @@ Jekyll のチュートリアル用リポジトリです。
     export PATH="$HOME/gems/bin:$PATH"
     ```
 
-3. シェルを再起動または .zshrc を再読み込みして環境変数のチェック。
+3. シェルを再起動または `.zshrc` を再読み込みして環境変数のチェック。
 
     ```shell
     $ source ~/.zshrc
