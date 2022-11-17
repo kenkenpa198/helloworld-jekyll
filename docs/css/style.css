@@ -1,0 +1,625 @@
+/* ==================================================
+ * Common
+ * ================================================== */
+:root {
+    /* wrapper */
+    --wrapper-padding: 16px;
+
+    /* 色 */
+    --color-main: #313539;
+    --color-tag-active: #cfd;
+    --color-tag-deactive: #ddd;
+    --color-text-black: #333;
+    --color-text-white: #fff;
+    --color-text-gray: #777;
+    --color-text-thin: #bbb;
+
+    /* フォント */
+    --font-family-default: 'Noto Sans JP', sans-serif, "Font Awesome 6 Free","Font Awesome 6 Brands";
+    --font-size-default: 17px;
+    --font-size-small: 0.85rem;
+    --font-size-big: 1.2rem;
+    --font-weight-light: 300;
+    --font-weight-default: 400;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+
+    /* margin と padding */
+
+    /* あしらい */
+    --box-shadow-default: 0 10px 25px 0 rgba(85, 85, 85, 0.3);
+}
+
+/* wrapper の幅をメディアクエリで定義 */
+/* PC 向け（大）のレイアウト */
+@media (min-width: 1120px) {
+    :root {
+        --wrapper-width: 1120px;
+    }
+}
+/* PC 向け（小）のレイアウト */
+@media (min-width: 960.1px) and (max-width: 1119.9px) {
+    :root {
+        --wrapper-width: 960px;
+    }
+}
+/* タブレット・SP 向けのレイアウト */
+@media (max-width: 960px) {
+    :root {
+        --wrapper-width: 100vw;
+    }
+}
+
+html {
+    height: 100%; /* タブレット以下向けのレイアウト時に body#home { background-position } を綺麗に表示するために必要 */
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100%; /* タブレット以下向けのレイアウト時に body#home { background-position } を綺麗に表示するために必要 */
+    font-size: var(--font-size-default);
+    font-weight: var(--font-weight-default);
+    font-family: var(--font-family-default);
+    color: var(--color-text-black);
+}
+
+body#home {
+    background-position: right;
+    background-attachment: fixed;
+    background-size: contain;
+    background-image: linear-gradient(to left, transparent 0%, transparent 20%, #fff 100%), url(../images/bg.jpg);
+    background-repeat: no-repeat;
+}
+
+/* タブレット・SP 向けのレイアウト */
+@media (max-width: 960px) {
+    /* Home の背景位置を調整してキービジュアルとして用いる */
+    body#home {
+        background-position: 70%;
+        background-attachment: scroll;
+        background-size: cover;
+    }
+}
+
+.wrapper {
+    max-width: var(--wrapper-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--wrapper-padding);
+    padding-right: var(--wrapper-padding);
+    box-sizing: border-box; /* デフォルト値の content-box だとメディアクエリのブレークポイントと wrapper のサイズがズレるため指定 */
+
+    /* テスト用 */
+    /* border: 1px solid #f00; */
+    /* height: 500px; */
+}
+
+p, li {
+    line-height: 1.4rem;
+}
+
+li {
+    margin-bottom: 0.25rem;
+}
+
+a:link {
+    color: var(--color-text-black);
+    text-decoration: underline;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+a:visited {
+    color: var(--color-text-black);
+}
+
+/* iOS でボタン類が青色になってしまう件を防ぐ */
+select, button {
+    color: var(--color-text-black);
+}
+
+/* ==================================================
+ * Header
+ * ================================================== */
+header {
+    background-color: var(--color-main);
+    color: var(--color-text-white);
+    font-size: 1.2em;
+    padding: 16px 0 16px 16px;
+}
+
+header .wrapper {
+    display: contents;
+}
+
+header p {
+    margin: 0;
+    line-height: 1rem;
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-light);
+}
+
+header a:link {
+    color: var(--color-text-white);
+    text-decoration: none;
+}
+
+header a:hover {
+    opacity: 1;
+}
+
+header a:visited {
+    color: var(--color-text-white);
+}
+
+header #title {
+    margin: 0;
+    text-align: left;
+    line-height: 1;
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-bold);
+}
+
+header hr {
+    border: 1px solid var(--color-text-white) ;
+    border-bottom: 0;
+    margin: 5px 0;
+}
+
+#content header #title {
+    font-size: var(--font-size-big);
+    font-weight: var(--font-weight-default);
+}
+
+#content header #catch {
+    display: none;
+}
+
+/* タブレット・SP 向けのレイアウト */
+@media (max-width: 960px) {
+    /* Home へ1画面分の margin を設定しファーストビュー表示領域を作成する */
+    #home header {
+        margin-bottom: 100vh;
+        margin-bottom: 100svh;
+    }
+}
+
+/* ==================================================
+ * スクロールボタン
+ * ================================================== */
+
+ #home #scroll {
+    display: none;  /* メディアクエリが発動しない大きな画面の時は非表示 */
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 2vh;
+    width: auto;
+    text-align: center;
+    font-size: var(--font-size-big);
+    font-weight: var(--font-weight-light);
+}
+
+#home #scroll p {
+    display: inline-block;
+    margin: 0;
+    padding: 10px 20px; /* スクロールボタンが押しやすいように padding などを設定 */
+}
+
+/* タブレット・SP 向けのレイアウト */
+@media (max-width: 960px) {
+    /* Home へ スクロールボタンを表示する */
+    #home #scroll {
+        display: inline-block;
+    }
+}
+
+/* ==================================================
+ * パンくずリスト
+ * ================================================== */
+nav#breadcrumb {
+    margin: 16px 0;
+    color: var(--color-text-thin);
+}
+
+nav#breadcrumb > ul {
+    padding-left: 0; /* デフォルトの padding を削除 */
+    font-size: 0; /* inline-block の余白を削除 */
+}
+
+nav#breadcrumb > ul > li {
+    display: inline-block;
+    font-size: var(--font-size-small);
+  }
+
+nav#breadcrumb > ul > li:after {
+    content: "/";
+    margin-right: 0.25rem;
+    margin-left: 0.25rem;
+}
+
+nav#breadcrumb a {
+    color: var(--color-text-gray);
+    text-decoration: none;
+}
+
+nav#breadcrumb a:hover {
+    color: var(--color-text-gray);
+    text-decoration: underline;
+    opacity: 1;
+}
+
+/* ==================================================
+ * コンテンツページ Flexbox レイアウト
+ * ================================================== */
+.main-container {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.main-container > nav#side {
+    width: 320px; /* PC 向け（大）のレイアウトの時に Masonry レイアウト側が 幅ピッタリになるように逆算して設定 */
+}
+
+.main-container > main {
+    flex: 1;
+}
+
+/* タブレット・SP 向けのレイアウト */
+@media (max-width: 960px) {
+    /* Flexbox を解除しサイドメニューとメインコンテンツを1カラムで表示する */
+    .main-container {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* フィルターメニューの width を解除して横いっぱいに表示 */
+    .main-container > nav#side {
+        width: auto;
+    }
+
+}
+
+/* ==================================================
+ * コンテンツページ サイドメニュー
+ * ================================================== */
+nav#side {
+    margin-top: 32px;
+    box-shadow: var(--box-shadow-default);
+    border-radius: 8px;
+    background-color: var(--color-text-white);
+}
+
+nav#side h2 {
+    display: block;
+    margin: 0 0 24px;
+    padding: 12px;
+    border-radius: 8px 8px 0 0;
+    background: var(--color-main);
+    color: var(--color-text-white);
+    font-size: 1.4rem;
+    font-weight: var(--font-weight-bold);
+}
+
+nav#side .filter-form {
+    padding: 0 20px 20px;
+}
+
+nav#side .filter-form label {
+    cursor: pointer;
+    user-select: none;
+}
+
+nav#side h3 {
+    /* margin: 24px 0 16px; */
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-black);
+}
+
+ul#category {
+    padding-left: 20px;
+}
+
+ul#category > li {
+    list-style: none;
+}
+
+ul#category > li label {
+    margin-left: 0.3rem;
+}
+
+ul#category > li .desc {
+    color: var(--color-text-gray);
+    font-size: var(--font-size-small);
+}
+
+ul#category > li .desc:before {
+    content: "/";
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    color: var(--color-text-gray);
+    font-size: var(--font-size-small);
+}
+
+ul#tags {
+    padding-left: 12px; /* デフォルトの padding を削除 */
+    font-size: 0; /* inline-block の余白を削除 */
+}
+
+ul#tags > li {
+    display: inline-block;
+    margin: 6px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: var(--color-tag-deactive);
+    font-size: var(--font-size-small);
+  }
+
+ul#tags > li:before {
+    content: "#";
+}
+
+/* ==================================================
+ * コンテンツページ メインエリア
+ * ================================================== */
+
+main {
+    width: 100%;
+}
+
+h1 {
+    margin: 16px 0 40px;
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: var(--font-weight-black);
+}
+
+main h2 {
+    /* display: inline-block; */
+    margin-top: 48px;
+    margin-bottom: 24px;
+    padding-right: 32px;
+    padding-bottom: 2px;
+    width: fit-content;
+    border-bottom: 1px solid var(--color-text-black);
+    font-size: 1.6rem;
+    font-weight: var(--font-weight-black);
+}
+
+/* .works-item { margin-top: 16px; } の打ち消し用 */
+/* 単純に 24px -16px = 8px だと詰まって見えたので 10px で指定している */
+main h2.works-h2 {
+    margin-bottom: 10px;
+}
+
+main h2 > a:link {
+    color: var(--color-text-black);
+    text-decoration: none;
+}
+
+main h2 > a:visited {
+    color: var(--color-text-black);
+}
+
+/* ==================================================
+ * Works Masonry レイアウト
+ * ==================================================
+ * .works-wrap : Masonry レイアウトを囲んでいる要素。列数の調整などに用いる。
+ * .works      : Masonry レイアウトの親要素。横幅が子要素の列数によって動的に変化する。
+ * .works-item : Masonry レイアウトの子要素。レイアウト対象の作品サムネイルそのもの。 */
+
+/* Home ページ以外では .works-wrap を固定幅で設定する。
+ * この設定が無いと4列の状態から3列の幅へ可変させたときに3列に戻らない。 */
+/* PC 向け（大）のレイアウト */
+@media (min-width: 1120px) {
+    #content .works-wrap {
+        max-width: 748px; /* 最大3列まで表示する */
+        margin: 0 auto;
+    }
+}
+/* PC 向け（小）のレイアウト */
+@media (min-width: 960.1px) and (max-width: 1119.9px) {
+    #content .works-wrap {
+        max-width: 574px; /* 最大2列まで表示する */
+    }
+}
+/* タブレット・SP 向けのレイアウト */
+@media (max-width: 960px) {
+    #content .works-wrap {
+        width: 100%; /* 幅いっぱいで表示する */
+    }
+}
+
+/* Home ページかつ PC（小・大）の場合、width に制限を設けてカラム落ちさせ、背景が見えるようにする */
+@media (min-width: 960.1px) {
+    #home .works-wrap {
+        width: 55vw;
+    }
+}
+
+/* .works の Masonry レイアウト中央寄せ指定
+ * 左右の margin を auto で指定 & jQuery 側の fitWidth: 'true' 指定で中央ぞろえになる */
+.works {
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Home ページかつ PC（小・大）の場合、左右の margin auto を解除し左揃えにする */
+@media (min-width: 960.1px) {
+    #home .works {
+        margin: 0;
+    }
+}
+
+.works-item {
+    margin-top: 16px;
+    margin-bottom: 0;
+    width: 216px;
+    list-style: none;
+    border-radius: 8px;
+    transition: 0.5s;
+}
+
+.works-item:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+/* 画像の読み込み中は非表示にする */
+/* 画像の読込完了後、JS 処理で .is-loading が削除され表示される */
+.works-item.is-loading {
+    opacity: 0;
+}
+
+/* アイテムの画像は角丸のカードのような見た目で表示 */
+.works-item img {
+    width: 100%;
+    border-radius: 8px;
+    vertical-align: top; /* a タグでできる隙間を消す */
+    object-fit: cover;
+    filter: drop-shadow(0 10px 20px #bbb);
+    transform: translateZ(0); /* iOS Safari へ GPU レイヤーの作成を促し drop-shadow の表示バグを起こさないようにする */
+}
+
+/* Home の4枚目に配置する Works ページへの繊維用ボタン  */
+.works-item .item-more {
+    margin: 0;
+    width:100%;
+    height: 100%;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    font-weight: var(--font-weight-light);
+    line-height: 216px;
+    filter: drop-shadow(0 10px 20px #bbb);
+    transform: translateZ(0); /* iOS Safari へ GPU レイヤーの作成を促し drop-shadow の表示バグを起こさないようにする */
+}
+
+.works-item a {
+    text-decoration: none;
+    opacity: 1;
+}
+
+.works-item .caption {
+    display: none;
+}
+
+/* 追加読み込みボタン */
+.load-more {
+    display: block;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.75em 0;
+    width: 70%;
+    border: none;
+    border-radius: 8px;
+    font-weight: var(--font-weight-light);
+    background: #fff;
+    filter: drop-shadow(0 10px 20px #bbb);
+    transform: translateZ(0); /* iOS Safari へ GPU レイヤーの作成を促し drop-shadow の表示バグを起こさないようにする */
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.load-more a:link {
+    color: var(--color-text-black);
+    text-decoration: underline;
+}
+
+.load-more:hover {
+    transform: scale(1.05);
+    opacity: 0.7;
+}
+
+/* ==================================================
+ * clew の説明
+ * ================================================== */
+div#desc-crew {
+    margin-top: 60px;
+    padding: 1rem;
+    width: fit-content;
+    border-left: 6px solid rgb(255, 234, 172);
+    background: rgba(255, 246, 218, 0.7);
+    text-align: left;
+    font-size: var(--font-size-small);
+}
+
+div#desc-crew p:first-child {
+    margin-top: 0;
+}
+
+div#desc-crew p:last-child {
+    margin-top: 2rem;
+    margin-bottom: 0;
+    text-align: right;
+}
+
+/* ==================================================
+ * Footer
+ * ================================================== */
+footer {
+    position: sticky;
+    top: 100vh;
+    margin-top: 40px;
+    padding: 30px 0;
+    text-align: center;
+    background-color: var(--color-main);
+    color: var(--color-text-white);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-light);
+}
+
+#home footer {
+    margin-top: 16px;
+}
+
+footer .wrapper {
+    display: contents;
+}
+
+footer p {
+    margin-bottom: 1rem;
+}
+
+footer ul {
+    padding-left: 0; /* デフォルトの padding を削除 */
+    font-size: 0; /* inline-block の余白を削除 */
+}
+
+footer ul > li {
+    display: inline-block;
+    margin: 0 8px 10px;
+    font-size: var(--font-size-small);
+}
+
+footer p#copy {
+    margin: 8px 0 0;
+}
+
+footer #go-top {
+    margin-bottom: 0px;
+    text-align: right;
+    font-size: var(--font-size-big);
+}
+
+footer #go-top p {
+    display: inline-block;
+    margin-right: 16px;
+    margin-bottom: 0;
+}
+
+footer a:link {
+    text-decoration: none;
+    color: var(--color-text-white);
+}
+
+footer a:visited {
+    color: var(--color-text-white);
+}

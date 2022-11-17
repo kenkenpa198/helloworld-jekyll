@@ -1,6 +1,44 @@
 <!DOCTYPE html>
-<html>
-  <body>
-     {{ content }}
-  </body>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#313539">
+    <title>テストだよ</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body id="content">
+    <header id="top">
+        <div class="wrapper">
+            <p id="title"><a href="./">ヘッダー</a></p>
+            <p id="catch"></p>
+        </div>
+    </header>
+    <div class="wrapper">
+      {{ content }}
+    </div>
+    <footer>
+        <div class="wrapper">
+            <ul>
+                <li><a href="#"><i class="fa-brands fa-github"></i> テスト</a></li>
+                <li><a href="#"><i class="fa-brands fa-github"></i> テスト</a></li>
+                <li><a href="#"><i class="fa-brands fa-github"></i> テスト</a></li>
+                <li><a href="#"><i class="fa-brands fa-github"></i> テスト</a></li>
+            </ul>
+            <p id="copy">フッター</p>
+            <div id="go-top">
+                <a href="#top">
+                    <p><i class="fa-solid fa-caret-up"></i></p>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 表示処理の後に読み込み -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/338ea6a4d5.js" crossorigin="anonymous"></script>
+    <script></script>
+</body>
 </html>
