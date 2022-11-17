@@ -71,6 +71,7 @@ $ jekyll serve
 │   │   └── index.html   ← 生成
 │   ├── _config.yml
 │   └── index.md
+├── images
 └── README.md
 ```
 
@@ -142,6 +143,7 @@ You can use HTML elements in Markdown, such as the comment element, and they won
         │   │   └── index.html
         │   ├── _config.yml
         │   └── index.md
+        ├── images
         └── README.md
         ```
 
@@ -228,6 +230,7 @@ You can use HTML elements in Markdown, such as the comment element, and they won
     │   │   └── style.css
     │   ├── _config.yml
     │   └── index.md
+    ├── images
     └── README.md
     ```
 
@@ -244,7 +247,68 @@ You can use HTML elements in Markdown, such as the comment element, and they won
 9. しっかり表示された！
     1. ![gh_temp](images/20221117_github_pages_template.jpg)
 
-## 4. 参考文献
+## 4. 子階層だったらどうなるか実験
+
+1. 以下のようなファイル構成にしてみる。
+
+    ```shell
+    .
+    ├── docs
+    │   ├── _layouts
+    │   │   └── default.html
+    │   ├── _site
+    │   │   ├── css
+    │   │   │   ├── normalize.css
+    │   │   │   └── style.css
+    │   │   ├── notes ★             ← 2. 当然のようにできとる…
+    │   │   │   ├── contents ★
+    │   │   │   │   ├── 20221107_a.html ★
+    │   │   │   │   ├── 20221107_b.html ★
+    │   │   │   │   └── 20221107_c.html ★
+    │   │   │   └── index.html
+    │   │   └── index.html
+    │   ├── css
+    │   │   ├── normalize.css
+    │   │   └── style.css
+    │   ├── notes ★                   ← 1. notes ディレクトリを追加
+    │   │   ├── contents ★
+    │   │   │   ├── 20221107_a.md ★
+    │   │   │   ├── 20221107_b.md ★
+    │   │   │   └── 20221107_c.md ★
+    │   │   └── index.md
+    │   ├── _config.yml
+    │   └── index.md
+    ├── images
+    └── README.md
+    ```
+
+2. localhost から辿ってアクセス。
+3. CSS が効いていなかった（スクショ略）。指定が相対パスだったからだと思われる。
+4. `docs/_layouts/default.html` を開いて絶対パスに書き換え。
+
+    ```html
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#313539">
+        <title>テストだよ</title>
+        <!-- <link rel="stylesheet" href="./css/normalize.css"> -->
+        <link rel="stylesheet" href="/css/normalize.css"> <!-- ←絶対パスへ変更 -->
+        <!-- <link rel="stylesheet" href="./css/style.css"> -->
+        <link rel="stylesheet" href="/css/style.css"> <!-- ←絶対パスへ変更 -->
+    </head>
+    ```
+
+5. アクセス。正常に CSS が効いた！
+    1. `http://localhost:4000/notes/`
+    ![notes_index](images/20221117_notes_index.jpg)
+    2. `http://localhost:4000/notes/contents/20221107_a.html`
+    ![notes_contents_20221107_a](images/20221117_notes_contents_20221107_a.jpg)
+
+6. GitHub へプッシュしてみる。
+
+## 5. 参考文献
 
 - [インストール | Jekyll • シンプルで、ブログのような、静的サイト](http://jekyllrb-ja.github.io/docs/installation/)
 - [Jekyll on Ubuntu | Jekyll • シンプルで、ブログのような、静的サイト](http://jekyllrb-ja.github.io/docs/installation/ubuntu/)
