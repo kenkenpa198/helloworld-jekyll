@@ -345,8 +345,12 @@ You can use HTML elements in Markdown, such as the comment element, and they won
         <link rel="stylesheet" href="{{ "/css/style.css" | relative_url }}"> <!-- ★ -->
     </head>
     ```
+
 3. ローカルでビルドした際の表示は問題ないぽい。
 4. GitHub へプッシュ……。
+5. アクセス…………。
+6. できた！！！！！！！！！！！！！！！！！！！！！！！！！！
+    1. ![sub_dir_github](images/20221117_sub_dir_github.jpg)
 
 ## 7. 参考文献
 
