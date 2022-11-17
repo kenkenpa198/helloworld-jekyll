@@ -3,7 +3,7 @@
 
 Jekyll のチュートリアル用リポジトリです。
 
-## 1. 操作メモ
+## 1. チュートリアル
 
 ### 1.1. 環境構築
 
@@ -38,7 +38,7 @@ Jekyll のチュートリアル用リポジトリです。
     $ jekyll --version
     ```
 
-### 1.2. チュートリアル
+### 1.2. ビルドしてみる
 
 ```shell
 # ルートディレクトリを作成
@@ -109,7 +109,24 @@ You can use HTML elements in Markdown, such as the comment element, and they won
 </html>
 ```
 
-## 2. 参考文献
+## 2. GitHub Pages で公開
+
+1. GitHub のこのリポジトリへアクセス。
+2. `Settings` > `Pages` > `GitHub Pages` へ遷移。
+3. `Build and deployment` > `Source` が `Deploy from a branch` になっていることを確認。
+4. `Build and deployment` > `Branch` を `None` から `main` へ変更。
+5. 表示されたディレクトリ設定を `/docs` へ変更。
+6. `Save` をクリック。
+7. 画面上部に `GitHub Pages source saved.` と表示される。
+8. `Actions` タブへ遷移。既にビルドが始まっている！
+9. `Jobs` がすべて緑になり、ログに `Cleaning up orphan processes` と表示されていたら完了ぽい。
+    1. ![building](images/20221117_github_pages_building.jpg)
+10. もう一度 `Settings` > `Pages` > `GitHub Pages` へ遷移。
+11. URL が発行されているのでクリック。
+12. うおーーー
+    1. ![result](images/20221117_github_pages_result.jpg)
+
+## 3. 参考文献
 
 - [インストール | Jekyll • シンプルで、ブログのような、静的サイト](http://jekyllrb-ja.github.io/docs/installation/)
 - [Jekyll on Ubuntu | Jekyll • シンプルで、ブログのような、静的サイト](http://jekyllrb-ja.github.io/docs/installation/ubuntu/)
