@@ -4,9 +4,12 @@
 Jekyll のチュートリアル用リポジトリです。
 
 <!-- omit in toc -->
-## 公開 URL
+## 公開しているページ
 
+- トップページ  
 [https://kenkenpa198.github.io/tutorial-jekyll/](https://kenkenpa198.github.io/tutorial-jekyll/)
+- マークダウン記法のテスト用ページ  
+[https://kenkenpa198.github.io/tutorial-jekyll/notes/contents/20221118_show_markdown_test.html](https://kenkenpa198.github.io/tutorial-jekyll/notes/contents/20221118_show_markdown_test.html)
 
 <!-- omit in toc -->
 ## 目次
