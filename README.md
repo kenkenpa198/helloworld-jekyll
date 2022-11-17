@@ -8,7 +8,8 @@ Jekyll のチュートリアル用リポジトリです。
 - [3. GitHub Pages で公開してみる](#3-github-pages-で公開してみる)
 - [4. デフォルトレイアウトのテンプレートを作ってみよー](#4-デフォルトレイアウトのテンプレートを作ってみよー)
 - [5. 子階層だったらどうなるか実験](#5-子階層だったらどうなるか実験)
-- [6. 参考文献](#6-参考文献)
+- [6. チュートリアルの relative_url フィルタを試してみる](#6-チュートリアルの-relative_url-フィルタを試してみる)
+- [7. 参考文献](#7-参考文献)
 
 ## 1. 環境構築メモ
 
@@ -312,8 +313,42 @@ You can use HTML elements in Markdown, such as the comment element, and they won
     ![notes_contents_20221107_a](images/20221117_notes_contents_20221107_a.jpg)
 
 6. GitHub へプッシュしてみる。
+7. ビルドは問題なかったが CSS が効いていなかった……。開発者ツールから相対パスに書き換えると効くみたい。
 
-## 6. 参考文献
+## 6. チュートリアルの relative_url フィルタを試してみる
+
+チュートリアルに書いている以下を試してみる。
+
+> Jekyllはパスの前にサイトURLを追加するためのいくつかのフィルタを提供しています。例えば、スタイルシートを次のようにします。
+>
+> ```css
+> {{ "/assets/style.css" | relative_url }}
+> ```
+>
+> relative_urlフィルタは設定ファイルからbaseurlの値（例えばblog）を取得します。これは、ドメインのrootよりサブパスでホストしているとき（例えばhttp://mysite.com/blog/）に便利です。
+
+1. `docs/_layouts/default.html` を編集。
+2. こうかな？
+
+    ```html
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#313539">
+        <title>テストだよ</title>
+        <!-- <link rel="stylesheet" href="./css/normalize.css"> -->
+        <!-- <link rel="stylesheet" href="/css/normalize.css"> -->
+        <link rel="stylesheet" href="{{ "/css/normalize.css" | relative_url }}"> <!-- ★ -->
+        <!-- <link rel="stylesheet" href="./css/style.css"> -->
+        <!-- <link rel="stylesheet" href="/css/style.css"> -->
+        <link rel="stylesheet" href="{{ "/css/style.css" | relative_url }}"> <!-- ★ -->
+    </head>
+    ```
+3. ローカルでビルドした際の表示は問題ないぽい。
+4. GitHub へプッシュ……。
+
+## 7. 参考文献
 
 - [インストール | Jekyll • シンプルで、ブログのような、静的サイト](http://jekyllrb-ja.github.io/docs/installation/)
 - [Jekyll on Ubuntu | Jekyll • シンプルで、ブログのような、静的サイト](http://jekyllrb-ja.github.io/docs/installation/ubuntu/)
