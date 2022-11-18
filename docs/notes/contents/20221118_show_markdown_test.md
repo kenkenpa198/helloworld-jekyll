@@ -7,6 +7,7 @@ layout: default
 # マークダウン記法の表示テスト
 
 マークダウン記法の表示テスト用ファイル（ページ）です。  
+[ソースコードはこちら](https://github.com/kenkenpa198/tutorial-jekyll) 。
 
 参考:
 
@@ -19,7 +20,7 @@ layout: default
 <!-- omit in toc -->
 ### i. マークダウンから HTML ファイルへの検知・生成
 
-この HTML ファイルは `docs/notes/contents/20221118_show_markdown_test.md` から生成されています。
+この HTML ファイルは `docs/notes/contents/20221118_show_markdown_test.md` から生成されています。  
 このマークダウンファイル内へ最初に記述された以下の設定テキストブロック（[YAML front matter ブロック](http://jekyllrb-ja.github.io/docs/front-matter/) と言う）を Jekyll が検知して処理しています。  
 
 ```md
@@ -35,16 +36,19 @@ layout: default
 HTML のレイアウトは `docs/_layouts/default.html` をテンプレートとして生成されています。
 
 CSS は `docs/css/style.css` `docs/css/normalize.css` を使用しています。  
-レイアウトの `<link>` タグの `href` 属性へ `{{ "/css/normalize.css" | relative_url }}` を記述して読み込まれています。
+レイアウトの `<link>` タグの `href` 属性へ `{ { "/css/normalize.css" | relative_url } }` を記述して読み込まれています。
 
 ```html
 <head>
     ...
-    <link rel="stylesheet" href="{{ "/css/normalize.css" | relative_url }}">
+    <link rel="stylesheet" href="{ { "/css/normalize.css" | relative_url } }">
     ...
-    <link rel="stylesheet" href="{{ "/css/style.css" | relative_url }}">
+    <link rel="stylesheet" href="{ { "/css/style.css" | relative_url } }">
 </head>
 ```
+
+※ この例の内、`{ {` 及び `} }` の外側と内側の間にある半角スペースを除去したものがソースコードへ記述されています。  
+この記載内容自体も置き換えられてしまうため。
 
 <!-- omit in toc -->
 ### iii. その他
@@ -132,9 +136,9 @@ CSS は `docs/css/style.css` `docs/css/normalize.css` を使用しています�
 
 *イタリック（アスタリスク1個）*
 
-_イタリック（アンダースコア2個）_
+_イタリック（アンダースコア1個）_
 
-**ボールド（アスタリスク2個）**
+__ボールド（アンダースコア2個）__
 
 **ボールド（アスタリスク2個）**
 
@@ -257,7 +261,7 @@ ___
     1. 番号付きリスト
     2. 番号付きリスト
         1. 番号付きリスト
-        2. 
+        2. 番号付きリスト
     3. 番号付きリスト
 3. 番号付きリスト
 
@@ -327,8 +331,9 @@ int main(void) {
 
 ---
 
-以上。  
-以下個人的な確認用。
+以上。
+
+以下は個人的な確認用。
 
 ## 見出し
 
